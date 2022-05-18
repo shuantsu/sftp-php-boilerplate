@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+name: Deploy app
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Grab the code
+        uses: actions/checkout@v2
+
+      - name: Upload files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.SERVER }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          local-dir: ./src/
+          server-dir: /www/test2/
+          exclude: |
+            **/scss/**
