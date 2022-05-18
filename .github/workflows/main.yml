@@ -18,6 +18,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           local-dir: ./src/
-          server-dir: /www/test2/
+          server-dir: /www/test/
           exclude: |
             **/scss/**
